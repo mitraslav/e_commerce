@@ -32,3 +32,12 @@ def category_tvs():
             Product("Apple TV", "Model number A2737", 190000.0, 2),
         ],
     )
+
+
+@pytest.fixture
+def products_list():
+    return [
+        Product("Samsung", "Has Android OS", 150000.0, 5),
+        Product("Apple", "Has IOS", 190000.0, 2),
+        Product("Xiaomi", "Has HyperOS", 70000.0, 8),
+    ]
