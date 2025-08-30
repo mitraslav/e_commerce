@@ -1,11 +1,13 @@
 from src.category import Category
 
+
 class MyIter:
     """Вспомогательный класс, с помощью которого можно перебирать товары одной категории
     Attributes:
         category (Category): Объект категории, содержащей товары
         index (int): Текущий индекс для итерации
     """
+
     def __init__(self, category: Category):
         """
         Инициализирует экзем
@@ -30,7 +32,7 @@ class MyIter:
         Raises:
             StopIteration: Когда все товары в категории были перебраны
         """
-        product_list = self.category.products.split('\n')
+        product_list = self.category.products.split("\n")
         if self.index < len(product_list):
             product = product_list[self.index]
             self.index += 1

@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.myiter import MyIter
 from src.product import Product
 
 
@@ -41,3 +42,13 @@ def products_list():
         Product("Apple", "Has IOS", 190000.0, 2),
         Product("Xiaomi", "Has HyperOS", 70000.0, 8),
     ]
+
+
+@pytest.fixture
+def category_iterator(category_phones):
+    return MyIter(category_phones)
+
+
+@pytest.fixture
+def product_phone2():
+    return Product("Samsung", "Has Android OS", 150000.0, 5)
