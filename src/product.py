@@ -28,6 +28,22 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """
+
+        :return: строка с информацией о продукте формата Название продукта, 80 руб. Остаток: 15 шт.
+        """
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+
+    def __add__(self, other):
+        """
+
+        :param other: Другой объект класса Product
+        :return: Сумма произведения стоимостей товара и их количества
+        """
+        return self.__price * self.quantity + other.price * other.quantity
+
+
     @classmethod
     def new_product(cls, product_data: dict, products_list: list = None):
         """Создает новый товар или обновляет существующий с таким же названием.

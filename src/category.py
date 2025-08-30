@@ -31,6 +31,14 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        """
+
+        :return: Строка о категории следующего вида: 'Название категории, количество продуктов: 200 шт.'
+        """
+        return f'{self.name}, количество продуктов: {self.product_count}'
+
+
     def add_product(self, product: Product):
         """Добавляет товар в категорию.
         Args:
@@ -52,5 +60,5 @@ class Category:
         """
         product_list = []
         for product in self.__products:
-            product_list.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity}.")
+            product_list.append(str(product))
         return "\n".join(product_list)
