@@ -24,4 +24,4 @@ def test_products(category_tvs):
 
 
 def test_category_str(category_tvs):
-    assert str(category_tvs) == "TVs, количество продуктов: 2"
+    assert str(category_tvs) == "TVs, количество продуктов: 13"
