@@ -47,8 +47,16 @@ def test_product_price_property(product_phone):
     assert product_phone.price == 100000.0
 
 
-def test_test_price_setter(product_phone):
+def test_price_setter(product_phone):
     product_phone.price = 0
     assert "Цена не должна быть нулевая или отрицательная"
     product_phone.price = -20
     assert "Цена не должна быть нулевая или отрицательная"
+
+
+def test_product_str(product_phone):
+    assert str(product_phone) == "Samsung, 100000.0 руб. Остаток: 4 шт."
+
+
+def test_product_add(product_phone, product_phone2):
+    assert product_phone + product_phone2 == 1150000.0
