@@ -36,7 +36,7 @@ class Category:
 
         :return: Строка о категории следующего вида: 'Название категории, количество продуктов: 200 шт.'
         """
-        return f"{self.name}, количество продуктов: {self.product_count}"
+        return f"{self.name}, количество продуктов: {sum([prod.quantity for prod in self.__products])}"
 
     def add_product(self, product: Product):
         """Добавляет товар в категорию.
