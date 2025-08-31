@@ -45,9 +45,14 @@ class Category:
 
         Increases:
             Увеличивает общий счетчик товаров (product_count) на 1
+        Raises:
+            TypeError: если продукт не относится к объекту класса Product или его подклассов
         """
-        self.__products.append(product)
-        Category.product_count += 1
+        if not isinstance(product, Product):
+            raise TypeError('В список продуктов можно добавлять только объекты Product и дочерние от него')
+        else:
+            self.__products.append(product)
+            Category.product_count += 1
 
     @property
     def products(self):

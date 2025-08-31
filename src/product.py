@@ -4,6 +4,7 @@ class Product:
     Attributes:
         name (str): Название товара
         description (str): Описание товара
+        price (float): Цена товара
         quantity (int): Количество товара на складе
     """
 
@@ -42,6 +43,8 @@ class Product:
         :param other: Другой объект класса Product
         :return: Сумма произведения стоимостей товара и их количества
         """
+        if type(self) != type(other):
+            raise TypeError("Продукты должны быть одинакового класса!")
         return self.__price * self.quantity + other.price * other.quantity
 
     @classmethod
