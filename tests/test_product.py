@@ -1,11 +1,13 @@
 from src.product import Product
-
+import pytest
 
 def test_init(product_phone):
     assert product_phone.name == "Samsung"
     assert product_phone.description == "You can call your friends"
     assert product_phone.price == 100000.0
     assert product_phone.quantity == 4
+    with pytest.raises(ValueError, match='Товар с нулевым или отрицательным количеством не может быть добавлен'):
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
 
 
 def test_new_product(product_phone, products_list):

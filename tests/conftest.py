@@ -79,3 +79,7 @@ def lawngrass2():
 @pytest.fixture
 def category_headphones():
     return Category
+
+@pytest.fixture
+def category_without_products():
+    return Category("Пустая категория", "Категория без продуктов", [])

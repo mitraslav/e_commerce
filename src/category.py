@@ -1,4 +1,5 @@
 from src.product import Product
+from src.exceptions import ZeroProducts
 
 
 class Category:
@@ -67,3 +68,26 @@ class Category:
         for product in self.__products:
             product_list.append(str(product))
         return "\n".join(product_list)
+
+    def middle_price(self):
+
+        try:
+            if not self.__products:
+                raise ZeroProducts("Список продуктов пустой!")
+        except ZeroProducts as e:
+            print(str(e))
+            return 0
+        else:
+            total_price = sum([prod.price for prod in self.__products])
+            try:
+                products_count = len([prod.name for prod in self.__products])
+                if products_count == 0:
+                    raise ZeroDivisionError
+            except ZeroDivisionError:
+                print('Количество товаров равно 0!')
+            else:
+                return round(total_price / products_count, 1)
+        finally:
+            print(f"Программа завершила работу.")
+
+
