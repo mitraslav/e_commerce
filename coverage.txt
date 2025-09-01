@@ -1,0 +1,20 @@
+Name                        Stmts   Miss  Cover
+-----------------------------------------------
+src\__init__.py                 0      0   100%
+src\base_product.py            14      3    79%
+src\category.py                25      0   100%
+src\lawngrass.py               10      0   100%
+src\myiter.py                  15      2    87%
+src\print_mixin.py              5      0   100%
+src\product.py                 47      5    89%
+src\smartphone.py              12      0   100%
+tests\__init__.py               0      0   100%
+tests\conftest.py              39      1    97%
+tests\test_category.py         25      0   100%
+tests\test_lawngrass.py        13      0   100%
+tests\test_myiter.py            8      0   100%
+tests\test_print_mixin.py      13      0   100%
+tests\test_product.py          33      0   100%
+tests\test_smartphone.py       14      0   100%
+-----------------------------------------------
+TOTAL                         273     11    96%

@@ -1,4 +1,5 @@
 import pytest
+
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -16,20 +17,18 @@ def test_init(category_phones, category_tvs):
 
 def test_add_product(product_phone, smartphone1, category_phones):
 
-    assert type(product_phone) == Product
-    assert type(smartphone1) == Smartphone
-    assert type(4) == int
+    assert type(product_phone) is Product
+    assert type(smartphone1) is Smartphone
+    assert type(4) is int
 
-    assert len([prod for prod in category_phones.products.split('\n')]) == 3
+    assert len([prod for prod in category_phones.products.split("\n")]) == 3
     category_phones.add_product(product_phone)
-    assert len([prod for prod in category_phones.products.split('\n')]) == 4
+    assert len([prod for prod in category_phones.products.split("\n")]) == 4
     category_phones.add_product(smartphone1)
-    assert len([prod for prod in category_phones.products.split('\n')]) == 5
+    assert len([prod for prod in category_phones.products.split("\n")]) == 5
 
     with pytest.raises(TypeError):
-        category_phones.add_product('String')
-
-
+        category_phones.add_product("String")
 
 
 def test_products(category_tvs):

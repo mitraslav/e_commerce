@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для представления товара в интернет-магазине.
 
     Attributes:
@@ -29,6 +33,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """
@@ -43,7 +48,7 @@ class Product:
         :param other: Другой объект класса Product
         :return: Сумма произведения стоимостей товара и их количества
         """
-        if type(self) != type(other):
+        if type(self) is not type(other):
             raise TypeError("Продукты должны быть одинакового класса!")
         return self.__price * self.quantity + other.price * other.quantity
 
