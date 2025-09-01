@@ -1,5 +1,6 @@
 import pytest
 
+from src.exceptions import ZeroProducts
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -39,3 +40,19 @@ def test_products(category_tvs):
 
 def test_category_str(category_tvs):
     assert str(category_tvs) == "TVs, количество продуктов: 7"
+
+def test_category_middle_price(category_tvs, category_without_products):
+    assert category_tvs.middle_price() == 170000.0
+    assert 'Программа завершила работу.'
+
+    assert category_without_products.middle_price() == 0
+    assert "Список продуктов пустой!"
+    assert "Программа завершила работу."
+
+def test_category_zero_products(capsys, category_without_products):
+    assert category_without_products.products == ''
+
+    category_without_products.middle_price()
+    message = capsys.readouterr()
+    assert message.out.strip().split('\n')[-2] == 'Список продуктов пустой!'
+    assert message.out.strip().split('\n')[-1] == 'Программа завершила работу.'
