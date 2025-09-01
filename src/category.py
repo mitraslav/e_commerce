@@ -49,7 +49,7 @@ class Category:
             TypeError: если продукт не относится к объекту класса Product или его подклассов
         """
         if not isinstance(product, Product):
-            raise TypeError('В список продуктов можно добавлять только объекты Product и дочерние от него')
+            raise TypeError("В список продуктов можно добавлять только объекты Product и дочерние от него")
         else:
             self.__products.append(product)
             Category.product_count += 1

@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Smartphone(Product):
     """
     Attributes:
@@ -8,6 +9,7 @@ class Smartphone(Product):
         memory (int): объем встроенной памяти
         color (str): цвет
     """
+
     efficiency: float
     model: str
     memory: int
